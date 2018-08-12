@@ -3,9 +3,18 @@ This is an ongoing project to create a machine learning model for data in the fo
 this repo reflect my current progress. For a more up-to-date (but less stable) version, see other branches.
 
 # To run in a Docker container:
+  $ git clone https://github.com/rockstardotb/mLearning_2D.git
+  
   $ docker build -t waleedka/modern-deep-learning .
   
   $ docker run -i -t --name mlearn -v /[absolute path to]/mLearning/:/app waleedka/modern-deep-learning:latest
   
+# To run without Docker container:
+  $ git clone https://github.com/rockstardotb/mLearning_2D.git
+  
+  $ cd mLearning_2D
+  
+  $ pip install -e .
+
 # TO DO
 -add unit testing and test data
