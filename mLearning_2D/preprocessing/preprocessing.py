@@ -21,7 +21,7 @@ def fix_missing(X):
     return X
 
 # Encoding categorical data
-def categorical_encode(data, independent=True):
+def categorical_encode(data, independent=True, equal=True):
     # Encoding the Independent Variable
     # [string1,string2,string3] --> [0,1,2]
     from sklearn.preprocessing import LabelEncoder
