@@ -20,21 +20,23 @@ def fix_missing(X):
     X[:, 1:3] = imputer.transform(X[:, 1:3])
     return X
 
+# Encoding categorical data
 def categorical_encode(data, independent=True):
-    # Encoding categorical data
     # Encoding the Independent Variable
-    # ['France','Spain','Germany'] --> [0,1,2]
-    from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+    # [string1,string2,string3] --> [0,1,2]
+    from sklearn.preprocessing import LabelEncoder
     if independent:
         labelencoder_data = LabelEncoder()
         data[:, 0] = labelencoder_data.fit_transform(data[:, 0])
 
-        # Prevent machine from thinking one category is greater than
-        # another
-        # [0,1,2] --> [[1,0,0],[0,1,0],[0,0,1]]
-        # first column --> France, second column --> Germany, third column --> Spain
-        onehotencoder = OneHotEncoder(categorical_features = [0])
-        data = onehotencoder.fit_transform(data).toarray()
+        if equal:
+            from sklearn.preprocessing import OneHotEncoder
+            # Prevent machine from thinking one category is greater than
+            # another
+            # [0,1,2] --> [[1,0,0],[0,1,0],[0,0,1]]
+            # first column --> France, second column --> Germany, third column --> Spain
+            onehotencoder = OneHotEncoder(categorical_features = [0])
+            data = onehotencoder.fit_transform(data).toarray()
 
     else:
         # Encoding the Dependent Variable
@@ -45,14 +47,14 @@ def categorical_encode(data, independent=True):
 
     return data
 
+# Split dataset into training and test sets
 def create_sets(X,y):
-        # Splitting the dataset into the Training set and Test set
         from sklearn.model_selection import train_test_split
 
         return train_test_split(X, y, test_size = 0.2, random_state = 0)
 
+# Feature scaling
 def feature_scale(X_train,X_test):
-        # Feature Scaling
         # Put columns in same scale so one feature doesn't 
         # dominate another
 
