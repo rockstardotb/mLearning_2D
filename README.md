@@ -5,7 +5,7 @@ this repo reflect my current progress. For a more up-to-date (but less stable) v
 # To run in a Docker container:
   $ git clone https://github.com/rockstardotb/mLearning_2D.git
   
-  $cd mLearning_2D
+  $ cd mLearning_2D
   
   $ docker build -t waleedka/modern-deep-learning .
   
