@@ -6,28 +6,28 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset
-def import_data(csv):
+def import_data(csv,xidx,yidx):
     dataset = pd.read_csv(csv)
-    X = dataset.iloc[:, :-1].values
-    y = dataset.iloc[:, 3].values
+    X = dataset.iloc[:, :xidx].values
+    y = dataset.iloc[:, yidx].values
     return X,y
 
 # Taking care of missing data
-def fix_missing(X):
+def fix_missing(X,xstart,xstop):
     from sklearn.preprocessing import Imputer
     imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
-    imputer = imputer.fit(X[:, 1:3])
-    X[:, 1:3] = imputer.transform(X[:, 1:3])
+    imputer = imputer.fit(X[:, xstart:xstop])
+    X[:, xstart:xstop] = imputer.transform(X[:, xstart:xstop])
     return X
 
 # Encoding categorical data
-def categorical_encode(data, independent=True, equal=True):
+def categorical_encode(data, independent=True, equal=True,idx=0):
     # Encoding the Independent Variable
     # [string1,string2,string3] --> [0,1,2]
     from sklearn.preprocessing import LabelEncoder
     if independent:
         labelencoder_data = LabelEncoder()
-        data[:, 0] = labelencoder_data.fit_transform(data[:, 0])
+        data[:, idx] = labelencoder_data.fit_transform(data[:, idx])
 
         if equal:
             from sklearn.preprocessing import OneHotEncoder
@@ -48,10 +48,10 @@ def categorical_encode(data, independent=True, equal=True):
     return data
 
 # Split dataset into training and test sets
-def create_sets(X,y):
+def create_sets(X,y,size=0.2):
         from sklearn.model_selection import train_test_split
 
-        return train_test_split(X, y, test_size = 0.2, random_state = 0)
+        return train_test_split(X, y, test_size = size, random_state = 0)
 
 # Feature scaling
 def feature_scale(X_train,X_test):
