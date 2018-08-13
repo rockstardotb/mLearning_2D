@@ -17,11 +17,23 @@ def predict(X_test, regressor):
     return y_pred
 
 # Plot expected vs predicted
-def visualize(X_train, y_train, regressor):
+def visualize_train(X_train, y_train, regressor):
 
     import matplotlib.pyplot as plt
 
     plt.scatter(X_train, y_train, color = 'red')
+    plt.plot(X_train, regressor.predict(X_train), color = 'green')
+    plt.title('Y vs X (Training Set'))
+    plt.xlabel('X')
+    plt.ylabel('Y')
+    plt.show()
+
+# Plot expected vs predicted
+def visualize_test(X_train, X_test, y_test, regressor):
+
+    import matplotlib.pyplot as plt
+
+    plt.scatter(X_test, y_test, color = 'red')
     plt.plot(X_train, regressor.predict(X_train), color = 'green')
     plt.title('Y vs X (Training Set'))
     plt.xlabel('X')
