@@ -17,6 +17,3 @@ this repo reflect my current progress. For a more up-to-date (but less stable) v
   $ cd mLearning_2D
   
   $ pip install -e .
-
-# TO DO
--add unit testing and test data
