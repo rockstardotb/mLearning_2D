@@ -35,7 +35,7 @@ def visualize_test(X_test, y_test, regressor):
 
     plt.scatter(X_test, y_test, color = 'red')
     plt.plot(X_test, predict(X_test), color = 'green')
-    plt.title('Y vs X (Training Set'))
+    plt.title('Y vs X (Training Set)')
     plt.xlabel('X')
     plt.ylabel('Y')
     plt.show()
