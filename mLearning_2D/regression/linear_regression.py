@@ -23,7 +23,7 @@ def visualize_train(X_train, y_train, regressor):
 
     plt.scatter(X_train, y_train, color = 'red')
     plt.plot(X_train, regressor.predict(X_train), color = 'green')
-    plt.title('Y vs X (Training Set'))
+    plt.title('Y vs X (Training Set)')
     plt.xlabel('X')
     plt.ylabel('Y')
     plt.show()

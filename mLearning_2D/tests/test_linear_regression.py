@@ -9,7 +9,7 @@ X,y = prep.import_data(Data,-1,1)
 # Test create_sets
 X_train,X_test,Y_train,Y_test = prep.create_sets(X,y,size=1/3)
 
-regressor = linear.regression(X_train,y_train)
+regressor = linear.train(X_train,y_train)
 
 linear.visualize_train(X_train,Y_train,regressor)
 linear.visualize_test(X_test,Y_test,regressor)
