@@ -7,5 +7,5 @@ setup(name='mLearning_2D',
       author='Alex Liddle',
       author_email='',
       url='https://github.com/rockstardotb/mLearning_2D',
-      packages=['mLearning_2D', 'mLearning_2D.preprocessing', 'mLearning_2D.tests'],
+      packages=['mLearning_2D', 'mLearning_2D.preprocessing', 'mLearning_2D.regression','mLearning_2D.tests'],
      )
